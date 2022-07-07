@@ -1,5 +1,7 @@
 package com.wisoft.io.testermatchingplatform.domain.tester;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.wisoft.io.testermatchingplatform.domain.apply.ApplyEntity;
 import com.wisoft.io.testermatchingplatform.domain.category.CategoryEntity;
 import com.wisoft.io.testermatchingplatform.domain.grade.GradeEntity;
@@ -30,7 +32,7 @@ public class TesterEntity {
 
     private String phoneNumber;
 
-    @JoinColumn(name = "CATEGORY_ID")
+    @JoinColumn(name = "PREFER_CATEGORY_ID")
     @ManyToOne
     private CategoryEntity preferCategory;
 
@@ -45,9 +47,11 @@ public class TesterEntity {
     private Date registerTime;
 
     @OneToMany(mappedBy = "tester",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonBackReference
     private List<ApplyEntity> applyEntities = new ArrayList<>();
 
     @OneToMany(mappedBy = "tester",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonBackReference
     private List<SubmitEntity> submitEntities = new ArrayList<>();
 
     public TesterEntity(Long id, String email, String password, String nickname, String phoneNumber, CategoryEntity preferCategory, String introMessage, String introPictureRef, GradeEntity grade, Date registerTime) {

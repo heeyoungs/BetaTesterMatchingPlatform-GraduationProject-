@@ -1,5 +1,6 @@
 package com.wisoft.io.testermatchingplatform.domain.apply;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.wisoft.io.testermatchingplatform.domain.quest.QuestEntity;
 import com.wisoft.io.testermatchingplatform.domain.tester.TesterEntity;
 import lombok.AllArgsConstructor;
@@ -21,9 +22,11 @@ public class ApplyEntity {
     private Date registerTime;
     private Date permissionTime;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "TESTER_ID")
     private TesterEntity tester;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "QUEST_ID")
     private QuestEntity quest;
     private String requireConditionSubmitRef;

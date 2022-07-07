@@ -1,6 +1,6 @@
 package com.wisoft.io.testermatchingplatform.handler;
 
-import com.wisoft.io.testermatchingplatform.handler.exception.CategoryNotFoundException;
+import com.wisoft.io.testermatchingplatform.handler.exception.category.CategoryNotFoundException;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;

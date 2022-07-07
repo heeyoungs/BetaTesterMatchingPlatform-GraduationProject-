@@ -4,10 +4,12 @@ import com.wisoft.io.testermatchingplatform.domain.quest.Quest;
 import com.wisoft.io.testermatchingplatform.domain.tester.Tester;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
+@Setter
 @AllArgsConstructor
 public class Apply {
     private Long id;

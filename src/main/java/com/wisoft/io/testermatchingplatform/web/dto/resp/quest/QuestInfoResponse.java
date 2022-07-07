@@ -1,19 +1,20 @@
 package com.wisoft.io.testermatchingplatform.web.dto.resp.quest;
 
 import com.wisoft.io.testermatchingplatform.domain.quest.Quest;
+import com.wisoft.io.testermatchingplatform.domain.task.Task;
+import com.wisoft.io.testermatchingplatform.web.dto.resp.task.TaskResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 public class QuestInfoResponse {
 
-    private Long id;
     private String title;
     private String content;
-
     private String categoryName;
     private Date registerTime;
     private Date recruitmentTimeStart;
@@ -22,16 +23,15 @@ public class QuestInfoResponse {
     private Date durationTimeLimit;
     private Date modifyTimeStart;
     private Date modifyTimeLimit;
-
     private String questMakerName;
     private int participantCapacity;
     private int reward;
     private String requireCondition;
     private String preferenceCondition;
+    private List<TaskResponse> taskList;
 
-    public static QuestInfoResponse from(final Quest quest){
+    public static QuestInfoResponse from(final Quest quest,final List<TaskResponse> taskList){
         return new QuestInfoResponse(
-                quest.getId(),
                 quest.getTitle(),
                 quest.getContent(),
                 quest.getCategory().getName(),
@@ -46,7 +46,8 @@ public class QuestInfoResponse {
                 quest.getParticipantCapacity(),
                 quest.getReward(),
                 quest.getRequireCondition(),
-                quest.getPreferenceCondition()
+                quest.getPreferenceCondition(),
+                taskList
         );
     }
 }

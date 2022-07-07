@@ -10,10 +10,10 @@ import java.util.Optional;
 public interface QuestRepository extends JpaRepository<QuestEntity, Long> {
 
     // 카테고리로 퀘스트 조회
-    List<QuestEntity> findByCategory_Id(Long id);
+    List<QuestEntity> findByCategoryId(Long id);
 
     // ntc로 퀘스트 조회
-    List<QuestEntity> findByQuestMaker_Id(Long id);
+    List<QuestEntity> findByQuestMakerId(Long id);
 
     // 아이디로 퀘스트 하나 조회
     @Override

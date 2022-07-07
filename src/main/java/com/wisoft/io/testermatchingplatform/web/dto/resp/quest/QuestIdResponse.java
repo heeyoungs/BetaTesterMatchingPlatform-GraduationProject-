@@ -1,5 +1,6 @@
 package com.wisoft.io.testermatchingplatform.web.dto.resp.quest;
 
+import com.wisoft.io.testermatchingplatform.domain.quest.Quest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -10,7 +11,7 @@ public class QuestIdResponse {
 
     private Long id;
 
-    public static QuestIdResponse from(final Long id) {
-        return new QuestIdResponse(id);
+    public static QuestIdResponse from(final Quest quest) {
+        return new QuestIdResponse(quest.getId());
     }
 }
